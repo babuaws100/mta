@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "04cdb069-d9ee-475e-b54c-1a57e42b23d6",
+		"name": "MultiTenantApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1795939"
+	},
+	"item": [
+		{
+			"name": "auth_request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/token?tenant=us",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "tenant",
+							"value": "us"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check_auth",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidGVuYW50SWQiOiJ1cyJ9.4z7ySS1jRS62Lxxet6nn2FzoVVUpNzBGiz6aqmAvmKk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
